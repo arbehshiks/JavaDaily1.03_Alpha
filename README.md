@@ -1,1 +1,1 @@
-# JavaDaily2.0
+# JavaDaily

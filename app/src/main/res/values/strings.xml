@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">JavaDaily</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Tests you passed today</string>
+    <string name = "percent">30%</string>
+</resources>
