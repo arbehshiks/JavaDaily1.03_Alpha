@@ -1,4 +1,4 @@
-package com.example.javadaily;
+package com.example.javadaily.Activities;
 
 import android.content.Context;
 import android.media.Image;
@@ -22,6 +22,8 @@ import android.os.Handler;
 
 import android.widget.RelativeLayout;
 import android.widget.Button;
+
+import com.example.javadaily.R;
 
 public class Home extends Fragment {
     //static ImageView imageView;

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "998851321498",
+    "firebase_url": "https://javadaily-d1605.firebaseio.com",
+    "project_id": "javadaily-d1605",
+    "storage_bucket": "javadaily-d1605.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998851321498:android:a92e0dcaa62425dc",
+        "android_client_info": {
+          "package_name": "com.example.javadaily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998851321498-nt2jfehhhkh7b99fuko0uala0rcfq08j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-vy0Te8guAywNYnQM_khOagbfJtpuzNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998851321498-nt2jfehhhkh7b99fuko0uala0rcfq08j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

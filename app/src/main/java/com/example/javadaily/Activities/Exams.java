@@ -1,4 +1,4 @@
-package com.example.javadaily;
+package com.example.javadaily.Activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.javadaily.R;
 
 public class Exams extends Fragment {
 

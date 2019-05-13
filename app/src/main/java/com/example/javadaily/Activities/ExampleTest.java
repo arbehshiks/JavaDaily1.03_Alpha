@@ -1,4 +1,4 @@
-package com.example.javadaily;
+package com.example.javadaily.Activities;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.example.javadaily.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
