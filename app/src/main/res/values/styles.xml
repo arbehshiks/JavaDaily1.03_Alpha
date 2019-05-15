@@ -9,14 +9,7 @@
 
     </style>
     <!--commented
-
         parent="Theme.AppCompat.Light.NoActionBar"  // line 4
-
-
-
-
-
-
     lines-->
     <style name="MyRadioButton" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@android:color/darker_gray</item>

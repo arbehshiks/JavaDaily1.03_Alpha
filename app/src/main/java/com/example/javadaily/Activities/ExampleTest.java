@@ -9,16 +9,28 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.example.javadaily.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ExampleTest extends AppCompatActivity {
     String[] questionsArray;  //array with our questions
     String[] answersArray;    //array with answers to questions that described above
+
+    String[] sourceArray;
+    TextView[] sourceTextView;
+
     ImageView[] questionPic;
+    String[] answersArrayGiven;
+
+    String topic;
+    public static int resultFromStaticTest;
+    public static int resultFromInnerTest;
+    public static int resultFromThisTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,67 +41,68 @@ public class ExampleTest extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         questionsArray=extras.getStringArray("PHOTOS");//questions
         answersArray=extras.getStringArray("ANSWERS");//answers
-        Button EndTest=(Button) findViewById(R.id.endtest);//Button to end test
+        sourceArray=extras.getStringArray("SOURCE");
+        topic=extras.getString("TOPIC");
+        answersArrayGiven = new String[5];
+        resultFromStaticTest=0;
+        Button EndTest=(Button) findViewById(R.id.endtest);//Button to end test;
         ////////////////
 
         questionPic=new ImageView[questionsArray.length]; //ImageViews
-
-        final RadioGroup radGrp = (RadioGroup)findViewById(R.id.radioANS1);
-        //RadioButtons
-        final RadioButton A1 = (RadioButton)findViewById(R.id.A1);
-        final RadioButton B1 = (RadioButton)findViewById(R.id.B1);
-        final RadioButton C1 = (RadioButton)findViewById(R.id.C1);
-        final RadioButton D1 = (RadioButton)findViewById(R.id.D1);
-        final RadioButton E1 = (RadioButton)findViewById(R.id.E1);
-
-        RadioButton A2 = (RadioButton)findViewById(R.id.A2);
-        RadioButton B2 = (RadioButton)findViewById(R.id.B2);
-        RadioButton C2 = (RadioButton)findViewById(R.id.C2);
-        RadioButton D2 = (RadioButton)findViewById(R.id.D2);
-        RadioButton E2 = (RadioButton)findViewById(R.id.E2);
-
-        RadioButton A3 = (RadioButton)findViewById(R.id.A3);
-        RadioButton B3 = (RadioButton)findViewById(R.id.B3);
-        RadioButton C3 = (RadioButton)findViewById(R.id.C3);
-        RadioButton D3 = (RadioButton)findViewById(R.id.D3);
-        RadioButton E3 = (RadioButton)findViewById(R.id.E3);
-
-        RadioButton A4 = (RadioButton)findViewById(R.id.A4);
-        RadioButton B4 = (RadioButton)findViewById(R.id.B4);
-        RadioButton C4 = (RadioButton)findViewById(R.id.C4);
-        RadioButton D4 = (RadioButton)findViewById(R.id.D4);
-        RadioButton E4 = (RadioButton)findViewById(R.id.E4);
-
-        RadioButton A5 = (RadioButton)findViewById(R.id.A5);
-        RadioButton B5 = (RadioButton)findViewById(R.id.B5);
-        RadioButton C5 = (RadioButton)findViewById(R.id.C5);
-        RadioButton D5 = (RadioButton)findViewById(R.id.D5);
-        RadioButton E5 = (RadioButton)findViewById(R.id.E5);
-
+        sourceTextView=new TextView[questionsArray.length];
+        final RadioGroup radGrpANS1 = (RadioGroup)findViewById(R.id.radioANS1);
+        final RadioGroup radGrpANS2 = (RadioGroup)findViewById(R.id.radioANS2);
+        final RadioGroup radGrpANS3 = (RadioGroup)findViewById(R.id.radioANS3);
+        final RadioGroup radGrpANS4 = (RadioGroup)findViewById(R.id.radioANS4);
+        final RadioGroup radGrpANS5 = (RadioGroup)findViewById(R.id.radioANS5);
 
         //Connecting ImageViews with  questionPic[]
         questionPic[0]=(ImageView) findViewById(R.id.question0);questionPic[1]=(ImageView) findViewById(R.id.question1);
         questionPic[2]=(ImageView) findViewById(R.id.question2);questionPic[3]=(ImageView) findViewById(R.id.question3);
         questionPic[4]=(ImageView) findViewById(R.id.question4);
 
+        //Connecting TextViews with  source
+        sourceTextView[0]=(TextView) findViewById(R.id.source1);sourceTextView[1]=(TextView) findViewById(R.id.source2);
+        sourceTextView[2]=(TextView) findViewById(R.id.source3);sourceTextView[3]=(TextView) findViewById(R.id.source4);
+        sourceTextView[4]=(TextView) findViewById(R.id.source5);
+
+
+
         //Setting questions pictures
         for(int i=0;i<questionsArray.length;i++){
             questionPic[i].setImageResource(getImageId(this,questionsArray[i]));
+            sourceTextView[i].setText(sourceArray[i]);
         }
-
-
         EndTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                answersArrayGiven[0]=( String.valueOf(radGrpANS1.getCheckedRadioButtonId()));
+                answersArrayGiven[1]=( String.valueOf(radGrpANS2.getCheckedRadioButtonId()));
+                answersArrayGiven[2]=( String.valueOf(radGrpANS3.getCheckedRadioButtonId()));
+                answersArrayGiven[3]=( String.valueOf(radGrpANS4.getCheckedRadioButtonId()));
+                answersArrayGiven[4]=( String.valueOf(radGrpANS5.getCheckedRadioButtonId()));
 
+
+                System.out.println(Array.get(answersArrayGiven, 1));
+
+                for(int i=0;i<questionsArray.length;i++) {
+                    if (Array.get(answersArrayGiven, i).equals(Array.get(answersArray, i))) {
+                            if(topic.equals("static")){
+                                resultFromStaticTest++;
+                            }
+                    } else {
+                        System.out.println("false");
+                    }
+                }
+                System.out.println(resultFromStaticTest);
             }
         });
-
-
         Log.v("123",(Arrays.toString(answersArray)));
+        Log.v("123",(Arrays.toString(sourceArray)));
     }
     //getImageId (void)
     public static int getImageId(Context context, String imageName) {
         return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
     }
+
 }

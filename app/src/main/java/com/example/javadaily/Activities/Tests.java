@@ -20,8 +20,6 @@ import java.io.IOException;
 public class Tests extends Fragment{
     private DBHelper mDBHelper;
     private SQLiteDatabase mDb;
-    ListView t_list;
-    ImageView Romko;
     int ID_ExampleTest = 1;
     @Nullable
     @Override
@@ -41,7 +39,7 @@ public class Tests extends Fragment{
 
         //Adapter
         final ArrayAdapter<String> testAdapter=new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,testsViewArray);
-        ListView t_list =(ListView) rootView.findViewById(R.id.testslist);
+        final ListView t_list =(ListView) rootView.findViewById(R.id.testslist);
         t_list.setAdapter(testAdapter);
 
 
@@ -50,14 +48,15 @@ public class Tests extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
                 String[] photos = mDBHelper.getPhotoIDbyTopic(mDb,testsViewArray[(int)id]); //getting photos
                 String[] answers = mDBHelper.getAnswersbyTopic(mDb,testsViewArray[(int)id]);//getting right answers
+                String[] source = mDBHelper.getSourcebyTopic(mDb,testsViewArray[(int)id]); //getting photos
                 Intent i = new Intent(getActivity(), ExampleTest.class);                    //making Intent
-//                Log.v("123",(Arrays.toString(photos)));                                //print
-//                Log.v("123",(Arrays.toString(answers)));                               //print
                 i.putExtra("PHOTOS", photos);                                        //pushing photos
                 i.putExtra("ANSWERS", answers);                                       //pushing answers
+                i.putExtra("SOURCE", source);                                       //pushing source
+                System.out.println(testsViewArray[(int)id]);
+                i.putExtra("TOPIC",testsViewArray[(int)id]);
                 startActivityForResult(i, ID_ExampleTest);
             }
         });
