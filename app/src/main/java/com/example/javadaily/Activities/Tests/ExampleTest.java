@@ -1,4 +1,4 @@
-package com.example.javadaily.Activities;
+package com.example.javadaily.Activities.Tests;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;

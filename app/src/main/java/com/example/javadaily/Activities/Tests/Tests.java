@@ -1,4 +1,4 @@
-package com.example.javadaily.Activities;
+package com.example.javadaily.Activities.Tests;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.example.javadaily.Activities.DBHelper;
 import com.example.javadaily.R;
 
 import java.io.IOException;

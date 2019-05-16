@@ -129,7 +129,7 @@ public class DBHelper extends SQLiteOpenHelper{
             Log.d("mLog","0 rows");
         cursor.close();
     }
-    String[] getPhotoIDbyTopic(SQLiteDatabase db, String topic){
+    public String[] getPhotoIDbyTopic(SQLiteDatabase db, String topic){
         ArrayList<String> arr = new ArrayList<>();
         db = getWritableDatabase();
         Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
@@ -148,7 +148,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return arr.toArray(new String[arr.size()]);
     }
 
-    String[] getAnswersbyTopic(SQLiteDatabase db, String topic){
+    public String[] getAnswersbyTopic(SQLiteDatabase db, String topic){
         ArrayList<String> arr = new ArrayList<>();
         db = getWritableDatabase();
         Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
@@ -167,7 +167,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return arr.toArray(new String[arr.size()]);
     }
 
-    String[] getSourcebyTopic(SQLiteDatabase db, String topic){
+    public String[] getSourcebyTopic(SQLiteDatabase db, String topic){
         ArrayList<String> arr = new ArrayList<>();
         db = getWritableDatabase();
         Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
@@ -187,7 +187,7 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
 
-    String[] getTopics(SQLiteDatabase db){
+    public String[] getTopics(SQLiteDatabase db){
         ArrayList<String> arr = new ArrayList<String>();
         db = getWritableDatabase();
         Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
