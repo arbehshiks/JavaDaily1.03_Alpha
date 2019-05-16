@@ -35,7 +35,8 @@ dependencies {
     // firebase Storage
     implementation 'com.google.firebase:firebase-storage:16.0.1'
 
-
+    // circle imageview
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 
 
     testImplementation 'junit:junit:4.12'
