@@ -125,8 +125,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     private void updateUserInfo(final String name, Uri pickedImgUri, final FirebaseUser currentUser) {
@@ -141,13 +139,10 @@ public class RegisterActivity extends AppCompatActivity {
                 imageFilePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-
                         UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder().setDisplayName(name).setPhotoUri(uri).build();
-
                         currentUser.updateProfile(profileUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-
                                 if (task.isSuccessful()){
                                     // user info updated successfully
                                     showMessage("Register Complete");
@@ -155,7 +150,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                                 }
-
                             }
                         });
 

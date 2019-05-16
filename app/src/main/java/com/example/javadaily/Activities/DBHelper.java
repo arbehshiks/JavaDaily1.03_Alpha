@@ -27,6 +27,8 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String KEY_QID = "questionID";
     public static final String KEY_PHOTO = "photoID";
     public static final String KEY_ANSWER="answer";
+    public static final String KEY_SOURCE="source";
+
     private SQLiteDatabase mDataBase;
     private final Context mContext;
     private boolean mNeedUpdate = false;
@@ -116,6 +118,7 @@ public class DBHelper extends SQLiteOpenHelper{
             int topic = cursor.getColumnIndex(DBHelper.KEY_TOPIC);
             int questionID = cursor.getColumnIndex(DBHelper.KEY_QID);
             int photoID = cursor.getColumnIndex(DBHelper.KEY_PHOTO);
+            int source = cursor.getColumnIndex(DBHelper.KEY_SOURCE);
             do{
                 Log.d("mLog", "ID = " + cursor.getInt(idIndex) +
                         ", topic = " + cursor.getString(topic)+
@@ -126,7 +129,7 @@ public class DBHelper extends SQLiteOpenHelper{
             Log.d("mLog","0 rows");
         cursor.close();
     }
-    String[] getPhotoIDbyTopic(SQLiteDatabase db, String topic){
+    public String[] getPhotoIDbyTopic(SQLiteDatabase db, String topic){
         ArrayList<String> arr = new ArrayList<>();
         db = getWritableDatabase();
         Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
@@ -145,7 +148,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return arr.toArray(new String[arr.size()]);
     }
 
-    String[] getAnswersbyTopic(SQLiteDatabase db, String topic){
+    public String[] getAnswersbyTopic(SQLiteDatabase db, String topic){
         ArrayList<String> arr = new ArrayList<>();
         db = getWritableDatabase();
         Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
@@ -164,8 +167,27 @@ public class DBHelper extends SQLiteOpenHelper{
         return arr.toArray(new String[arr.size()]);
     }
 
+    public String[] getSourcebyTopic(SQLiteDatabase db, String topic){
+        ArrayList<String> arr = new ArrayList<>();
+        db = getWritableDatabase();
+        Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
+        if (c.moveToFirst()) {
+            do {
+                if(c.getString(c.getColumnIndex(DBHelper.KEY_TOPIC)).equals(topic)){
+                    int nameIndex = c.getColumnIndex(DBHelper.KEY_SOURCE);
+                    arr.add(c.getString(nameIndex));
+                }
+            } while (c.moveToNext());
 
-    String[] getTopics(SQLiteDatabase db){
+        } else
+            Log.d("mLog", "0 rows");
+        c.close();
+        db.close();
+        return arr.toArray(new String[arr.size()]);
+    }
+
+
+    public String[] getTopics(SQLiteDatabase db){
         ArrayList<String> arr = new ArrayList<String>();
         db = getWritableDatabase();
         Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
