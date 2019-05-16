@@ -184,7 +184,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="A1"
+                android:text="A"
+                android:textColor="#E6E6E6"
                 android:textAllCaps="true"
                 android:theme="@style/MyRadioButton" />
 
@@ -194,7 +195,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="B1"
+                android:text="B"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -203,7 +205,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="C1"
+                android:text="C"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -212,7 +215,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="D1"
+                android:text="D"
+                android:textColor="#E6E6E6"
                 android:textAllCaps="false"
 
                 android:theme="@style/MyRadioButton" />
@@ -223,7 +227,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="E1"
+                android:text="E"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
         </RadioGroup>
 
@@ -248,7 +253,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="A2"
+                android:text="A"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -257,7 +263,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="B2"
+                android:text="B"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -266,7 +273,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="C2"
+                android:text="C"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -275,7 +283,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="D2"
+                android:text="D"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -284,7 +293,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="E2"
+                android:text="E"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
         </RadioGroup>
 
@@ -309,7 +319,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="A3"
+                android:text="A"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -318,7 +329,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="B3"
+                android:text="B"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -327,7 +339,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="C3"
+                android:text="C"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -336,7 +349,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="D3"
+                android:text="D"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -345,7 +359,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="E3"
+                android:text="E"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
         </RadioGroup>
 
@@ -371,7 +386,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="A4"
+                android:text="A"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -380,7 +396,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="B4"
+                android:text="B"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -389,7 +406,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="C4"
+                android:text="C"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -398,7 +416,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="D4"
+                android:text="D"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -407,7 +426,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="E4"
+                android:text="E"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
         </RadioGroup>
 
@@ -432,7 +452,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="A5"
+                android:text="A"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -441,7 +462,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="B5"
+                android:text="B"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -450,7 +472,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="C5"
+                android:text="C"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -459,7 +482,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="D5"
+                android:text="D"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -468,7 +492,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
-                android:text="E5"
+                android:text="E"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
         </RadioGroup>
 

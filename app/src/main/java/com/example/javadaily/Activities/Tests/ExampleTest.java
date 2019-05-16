@@ -1,8 +1,12 @@
 package com.example.javadaily.Activities.Tests;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.SwitchCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +21,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 public class ExampleTest extends AppCompatActivity {
     String[] questionsArray;  //array with our questions
     String[] answersArray;    //array with answers to questions that described above
@@ -27,6 +32,7 @@ public class ExampleTest extends AppCompatActivity {
     ImageView[] questionPic;
     String[] answersArrayGiven;
 
+    RadioGroup[] radioGroups;
     String topic;
     public static int resultFromStaticTest;
     public static int resultFromInnerTest;
@@ -43,7 +49,9 @@ public class ExampleTest extends AppCompatActivity {
         answersArray=extras.getStringArray("ANSWERS");//answers
         sourceArray=extras.getStringArray("SOURCE");
         topic=extras.getString("TOPIC");
+
         answersArrayGiven = new String[5];
+        radioGroups=new RadioGroup[5];
         resultFromStaticTest=0;
         Button EndTest=(Button) findViewById(R.id.endtest);//Button to end test;
         ////////////////
@@ -56,6 +64,12 @@ public class ExampleTest extends AppCompatActivity {
         final RadioGroup radGrpANS4 = (RadioGroup)findViewById(R.id.radioANS4);
         final RadioGroup radGrpANS5 = (RadioGroup)findViewById(R.id.radioANS5);
 
+        radioGroups[0]=radGrpANS1;
+        radioGroups[1]=radGrpANS2;
+        radioGroups[2]=radGrpANS3;
+        radioGroups[3]=radGrpANS4;
+        radioGroups[4]=radGrpANS5;
+
         //Connecting ImageViews with  questionPic[]
         questionPic[0]=(ImageView) findViewById(R.id.question0);questionPic[1]=(ImageView) findViewById(R.id.question1);
         questionPic[2]=(ImageView) findViewById(R.id.question2);questionPic[3]=(ImageView) findViewById(R.id.question3);
@@ -65,7 +79,6 @@ public class ExampleTest extends AppCompatActivity {
         sourceTextView[0]=(TextView) findViewById(R.id.source1);sourceTextView[1]=(TextView) findViewById(R.id.source2);
         sourceTextView[2]=(TextView) findViewById(R.id.source3);sourceTextView[3]=(TextView) findViewById(R.id.source4);
         sourceTextView[4]=(TextView) findViewById(R.id.source5);
-
 
 
         //Setting questions pictures
@@ -82,16 +95,14 @@ public class ExampleTest extends AppCompatActivity {
                 answersArrayGiven[3]=( String.valueOf(radGrpANS4.getCheckedRadioButtonId()));
                 answersArrayGiven[4]=( String.valueOf(radGrpANS5.getCheckedRadioButtonId()));
 
-
-                System.out.println(Array.get(answersArrayGiven, 1));
-
                 for(int i=0;i<questionsArray.length;i++) {
                     if (Array.get(answersArrayGiven, i).equals(Array.get(answersArray, i))) {
-                            if(topic.equals("static")){
+                            if(topic.equals("Static")){
                                 resultFromStaticTest++;
                             }
-                    } else {
-                        System.out.println("false");
+                    }
+                    else {
+                        radioGroups[i].setBackgroundColor(Color.RED);
                     }
                 }
                 System.out.println(resultFromStaticTest);
