@@ -15,9 +15,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import com.example.javadaily.Activities.Tests.ExampleTest;
 import com.example.javadaily.R;
 import java.io.FileNotFoundException;
@@ -29,16 +33,23 @@ import static com.example.javadaily.Activities.Tests.ExampleTest.resultFromStati
 import static com.example.javadaily.Activities.Tests.ExampleTest.resultFromThisTest;
 
 public class Profile extends Fragment {
-    ImageButton ProfilePicBtn;
+    ImageButton ProfilePicBtn, hiddenCheckBTN;
     ProgressBar prg1,prg2,prg3,prg4,prg5,prg6,prg7,prg8,prg9;
     private CircleImageView ProfilePic;
     private static final int PICK_IMAGE = 1;
     Uri imageUri;
     ImageView ProfilePicture;
+    Button hiddenNameBTN;
+    TextView profile_name, text_view2;
+    EditText hidden_edit_txt;
     static int PReqCode = 1;
     static int REQUESCODE = 1;
     private Context context;
     public static View rooootView;
+
+
+
+
 
     @Override
     public void onStart() {
@@ -67,6 +78,54 @@ public class Profile extends Fragment {
         prg4 = (ProgressBar) rootView.findViewById(R.id.profileProgressBar4);
 
         prg8 = (ProgressBar) rootView.findViewById(R.id.profileProgressBar8);
+
+
+
+
+
+
+
+        // Editing name
+        hiddenNameBTN = (Button) rootView.findViewById(R.id.hiddenNameButton);
+        hiddenCheckBTN = (ImageButton) rootView.findViewById(R.id.hiddenCheckButton);
+        profile_name = (TextView) rootView.findViewById(R.id.profileName);
+        text_view2 = (TextView) rootView.findViewById(R.id.textView2);
+        hidden_edit_txt = (EditText) rootView.findViewById(R.id.hiddenEditText);
+
+
+        profile_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                profile_name.setVisibility(View.INVISIBLE);
+                hiddenCheckBTN.setVisibility(View.VISIBLE);
+                hidden_edit_txt.setVisibility(View.VISIBLE);
+                text_view2.setVisibility(View.INVISIBLE);
+
+            }
+        });
+
+        hiddenCheckBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (hidden_edit_txt.getText().length() <= 19) {
+                    profile_name.setText(hidden_edit_txt.getText());
+                }
+                else {
+                    String output = hidden_edit_txt.getText().toString().substring(0, 19);
+                    profile_name.setText(output);
+//                    profile_name.setText("Max Lenght Is 12");
+                }
+                hidden_edit_txt.setVisibility(View.INVISIBLE);
+                profile_name.setVisibility(View.VISIBLE);
+                hiddenCheckBTN.setVisibility(View.INVISIBLE);
+                text_view2.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+
+
 
 
 

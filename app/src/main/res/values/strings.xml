@@ -15,5 +15,6 @@
 
     <string name="name">Ilya Music</string>
     <string name="namen">Name</string>
+    <string name="hint">Enter name</string>
 
 </resources>
