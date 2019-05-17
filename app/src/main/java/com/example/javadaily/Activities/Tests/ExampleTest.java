@@ -114,12 +114,6 @@ public class ExampleTest extends AppCompatActivity {
                 answersArrayGiven[3]=( String.valueOf(radGrpANS4.getCheckedRadioButtonId()));
                 answersArrayGiven[4]=( String.valueOf(radGrpANS5.getCheckedRadioButtonId()));
 
-                System.out.println(String.valueOf(radGrpANS1.getCheckedRadioButtonId()));
-                System.out.println(String.valueOf(radGrpANS2.getCheckedRadioButtonId()));
-                System.out.println(String.valueOf(radGrpANS3.getCheckedRadioButtonId()));
-                System.out.println(String.valueOf(radGrpANS4.getCheckedRadioButtonId()));
-                System.out.println(String.valueOf(radGrpANS5.getCheckedRadioButtonId()));
-
                 for(int i=0;i<questionsArray.length;i++) {
                     sourceTextView[i].setVisibility(View.VISIBLE);
                     if (Array.get(answersArrayGiven, i).equals(Array.get(answersArray, i))) {

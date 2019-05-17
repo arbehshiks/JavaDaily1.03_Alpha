@@ -18,23 +18,19 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-
 import com.example.javadaily.Activities.Tests.ExampleTest;
 import com.example.javadaily.R;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-
 import de.hdodenhof.circleimageview.CircleImageView;
-
 import static android.support.v4.provider.FontsContractCompat.FontRequestCallback.RESULT_OK;
+import static com.example.javadaily.Activities.Tests.ExampleTest.resultFromInnerTest;
+import static com.example.javadaily.Activities.Tests.ExampleTest.resultFromStaticTest;
+import static com.example.javadaily.Activities.Tests.ExampleTest.resultFromThisTest;
 
 public class Profile extends Fragment {
-
-
     ImageButton ProfilePicBtn;
-    ProgressBar prg1;
+    ProgressBar prg1,prg2,prg3,prg4,prg5,prg6,prg7,prg8,prg9;
     private CircleImageView ProfilePic;
     private static final int PICK_IMAGE = 1;
     Uri imageUri;
@@ -44,21 +40,19 @@ public class Profile extends Fragment {
     private Context context;
     public static View rooootView;
 
-
-    ExampleTest testValues = new ExampleTest();
-
-    public static int resultFromStaticTest;//Results
-    public static int resultFromInnerTest; //
-    public static int resultFromThisTest;  //
+    @Override
+    public void onStart() {
+        super.onStart();
 
 
+        if(resultFromStaticTest*20==prg1.getProgress()&resultFromInnerTest*20==prg8.getProgress()&resultFromThisTest*20==prg4.getProgress()){}else{
+        settingProgres();
+}
 
+    }
 
 
     @Nullable
-
-
-
     @Override
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,13 +61,12 @@ public class Profile extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
         rooootView = rootView;
-
-
         // Progress bars
         prg1 = (ProgressBar) rootView.findViewById(R.id.profileProgressBar);
 
-        resultFromStaticTest = testValues.resultFromStaticTest;
-        settingProgress();
+        prg4 = (ProgressBar) rootView.findViewById(R.id.profileProgressBar4);
+
+        prg8 = (ProgressBar) rootView.findViewById(R.id.profileProgressBar8);
 
 
 
@@ -82,7 +75,6 @@ public class Profile extends Fragment {
         ProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
@@ -95,10 +87,23 @@ public class Profile extends Fragment {
 
     }
 
+    public void settingProgres(){
 
+        if(resultFromStaticTest*20!=prg1.getProgress()){
+            prg1.setProgress(0); // call these two methods before setting progress.
+            prg1.setProgress(resultFromStaticTest*20);
+        }
 
-    public void settingProgress(){
-        prg1.setProgress(resultFromStaticTest * 20);
+        if(resultFromInnerTest*20!=prg8.getProgress()){
+            prg8.setProgress(0); // call these two methods before setting progress.
+            prg8.setProgress(resultFromInnerTest*20);
+        }
+
+        if(resultFromThisTest*20!=prg4.getProgress()){
+            prg4.setProgress(0); // call these two methods before setting progress.
+            prg4.setProgress(resultFromThisTest*20);
+        }
+
 
     }
 
@@ -155,6 +160,5 @@ public class Profile extends Fragment {
     private ContentResolver getContentResolver() {
         return null;
     }
-
 
 }
