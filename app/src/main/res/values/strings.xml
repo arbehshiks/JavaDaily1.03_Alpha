@@ -13,4 +13,7 @@
     <string name="lbl_edit_note_title">Edit Note</string>
     <string name="hint_enter_note">Enter your note!</string>
 
+    <string name="name">Ilya Music</string>
+    <string name="namen">Name</string>
+
 </resources>

@@ -17,11 +17,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
+import com.example.javadaily.Activities.Tests.ExampleTest;
 import com.example.javadaily.R;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -31,6 +34,7 @@ public class Profile extends Fragment {
 
 
     ImageButton ProfilePicBtn;
+    ProgressBar prg1;
     private CircleImageView ProfilePic;
     private static final int PICK_IMAGE = 1;
     Uri imageUri;
@@ -39,6 +43,18 @@ public class Profile extends Fragment {
     static int REQUESCODE = 1;
     private Context context;
     public static View rooootView;
+
+
+    ExampleTest testValues = new ExampleTest();
+
+    public static int resultFromStaticTest;//Results
+    public static int resultFromInnerTest; //
+    public static int resultFromThisTest;  //
+
+
+
+
+
     @Nullable
 
 
@@ -51,6 +67,14 @@ public class Profile extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
         rooootView = rootView;
+
+
+        // Progress bars
+        prg1 = (ProgressBar) rootView.findViewById(R.id.profileProgressBar);
+
+        resultFromStaticTest = testValues.resultFromStaticTest;
+        settingProgress();
+
 
 
 
@@ -73,25 +97,35 @@ public class Profile extends Fragment {
 
 
 
+    public void settingProgress(){
+        prg1.setProgress(resultFromStaticTest * 20);
 
-    @SuppressLint("RestrictedApi")
+    }
+
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        Log.v("mLog", "ACTIVITY RESULT PASSS!!!!!!!!!!!!!!!!!!");
+        if (resultCode == getActivity().RESULT_OK) {
+            if (requestCode == PICK_IMAGE) {
+                Log.v("mLog", "REQUESTED PASSS!!!!!!!!!!!!!!!!!!");
+                Uri selectedImage = data.getData();
+                Bitmap bitmap = null;
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), selectedImage);
+                    CircleImageView imageView = (CircleImageView) rooootView.findViewById(R.id.profilePic);
+                    imageView.setImageBitmap(bitmap);
 
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK){
-            imageUri = data.getData();
-            try {
-                Bitmap bitmapImage = decodeBitmap(imageUri);
-                CircleImageView imageView = (CircleImageView) rooootView.findViewById(R.id.profilePic);
-                imageView.setImageBitmap(bitmapImage);
+                } catch (Exception e) {
+                    Log.v("mLog", "ERROR__!!!!!!!!!!!!!!!!!!");
+                    e.printStackTrace();
+                }
 
-            }catch (Exception e){
-                Log.v("Mlog", "ERROR__________________________!!!!!!!!!!!!!!!!!!");
-                e.printStackTrace();
             }
         }
     }
+
 
 
 
