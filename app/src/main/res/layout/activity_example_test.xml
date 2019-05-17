@@ -11,6 +11,47 @@
         android:layout_height="match_parent"
         android:background="#0d0d0d">
 
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="268dp"
+            android:layout_marginTop="1320dp"
+            android:layout_marginEnd="8dp"
+            android:text="Confirm"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/cleanprogress"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="256dp"
+            android:layout_marginEnd="8dp"
+            android:text="Repeat"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/endtest"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/source4" />
+
+        <Button
+            android:id="@+id/endtest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="1320dp"
+            android:layout_marginEnd="8dp"
+            android:text="End"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/source5"
             android:layout_width="394dp"
@@ -21,6 +62,7 @@
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="#6078bf"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +78,7 @@
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="#6078bf"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +94,7 @@
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="#6078bf"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +110,7 @@
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="#6078bf"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,20 +126,8 @@
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="#6078bf"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/endtest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="1312dp"
-            android:layout_marginEnd="8dp"
-            android:text="End"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.296"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -185,8 +218,8 @@
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
                 android:text="A"
-                android:textColor="#E6E6E6"
                 android:textAllCaps="true"
+                android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
 
             <RadioButton
@@ -216,8 +249,8 @@
                 android:layout_marginLeft="24dp"
                 android:layout_weight="1"
                 android:text="D"
-                android:textColor="#E6E6E6"
                 android:textAllCaps="false"
+                android:textColor="#E6E6E6"
 
                 android:theme="@style/MyRadioButton" />
 
@@ -496,6 +529,18 @@
                 android:textColor="#E6E6E6"
                 android:theme="@style/MyRadioButton" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/record"
+            android:layout_width="224dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="#6078bf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </android.support.constraint.ConstraintLayout>

@@ -12,8 +12,8 @@
         parent="Theme.AppCompat.Light.NoActionBar"  // line 4
     lines-->
     <style name="MyRadioButton" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@android:color/darker_gray</item>
-        <item name="colorControlActivated">@android:color/holo_green_dark</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
 </resources>

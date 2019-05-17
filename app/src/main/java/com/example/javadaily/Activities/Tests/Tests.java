@@ -55,7 +55,9 @@ public class Tests extends Fragment{
                 i.putExtra("PHOTOS", photos);                                        //pushing photos
                 i.putExtra("ANSWERS", answers);                                       //pushing answers
                 i.putExtra("SOURCE", source);                                       //pushing source
-                System.out.println(testsViewArray[(int)id]);
+                System.out.println(photos);
+                System.out.println(answers);
+                System.out.println(source);
                 i.putExtra("TOPIC",testsViewArray[(int)id]);
                 startActivityForResult(i, ID_ExampleTest);
             }
