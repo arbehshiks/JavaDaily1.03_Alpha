@@ -1,5 +1,6 @@
 package com.example.javadaily.Activities;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.javadaily.ExampleExam;
 import com.example.javadaily.R;
 
 import java.io.IOException;
@@ -48,18 +50,17 @@ public class Exams extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-//                String[] photos = mDBHelperExams.getPhotoIDbyTopic(mDb,testsViewArray[(int)id]); //getting photos
-//                String[] answers = mDBHelperExams.getAnswersbyTopic(mDb,testsViewArray[(int)id]);//getting right answers
-//                String[] source = mDBHelperExams.getSourcebyTopic(mDb,testsViewArray[(int)id]); //getting photos
-//                Intent i = new Intent(getActivity(), ExampleTest.class);                    //making Intent
-//                i.putExtra("PHOTOS", photos);                                        //pushing photos
-//                i.putExtra("ANSWERS", answers);                                       //pushing answers
-//                i.putExtra("SOURCE", source);                                       //pushing source
-//                System.out.println(photos);
-//                System.out.println(answers);
-//                System.out.println(source);
-//                i.putExtra("TOPIC",testsViewArray[(int)id]);
-//                startActivityForResult(i, ID_ExampleTest);
+                String[] photos = mDBHelperExams.getPhotoIDbyTopic(mDb,testsViewArray[(int)id]); //getting photos
+                String[] answers = mDBHelperExams.getAnswersbyTopic(mDb,testsViewArray[(int)id]);//getting right answers
+                String[] source = mDBHelperExams.getSourcebyTopic(mDb,testsViewArray[(int)id]); //getting photos
+                Intent i = new Intent(getActivity(), ExampleExam.class);                    //making Intent
+                i.putExtra("PHOTOS", photos);                                        //pushing photos
+                i.putExtra("ANSWERS", answers);                                       //pushing answers
+                //pushing source
+                System.out.println(photos);
+                System.out.println(answers);
+                i.putExtra("TOPIC",testsViewArray[(int)id]);
+                startActivityForResult(i, ID_ExampleExam);
             }
         });
 

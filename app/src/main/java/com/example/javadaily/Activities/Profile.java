@@ -31,6 +31,7 @@ import static android.support.v4.provider.FontsContractCompat.FontRequestCallbac
 import static com.example.javadaily.Activities.Tests.ExampleTest.resultFromInnerTest;
 import static com.example.javadaily.Activities.Tests.ExampleTest.resultFromStaticTest;
 import static com.example.javadaily.Activities.Tests.ExampleTest.resultFromThisTest;
+import static com.example.javadaily.ExampleExam.rank1;
 
 public class Profile extends Fragment {
     ImageButton ProfilePicBtn, hiddenCheckBTN;
@@ -46,7 +47,7 @@ public class Profile extends Fragment {
     static int REQUESCODE = 1;
     private Context context;
     public static View rooootView;
-
+    TextView rank;
 
 
 
@@ -54,8 +55,8 @@ public class Profile extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
-
+        rank.setText(rank1);
+        
         if(resultFromStaticTest*20==prg1.getProgress()&resultFromInnerTest*20==prg8.getProgress()&resultFromThisTest*20==prg4.getProgress()){}else{
         settingProgres();
 }
@@ -87,7 +88,7 @@ public class Profile extends Fragment {
         profile_name = (TextView) rootView.findViewById(R.id.profileName);
         text_view2 = (TextView) rootView.findViewById(R.id.textView2);
         hidden_edit_txt = (EditText) rootView.findViewById(R.id.hiddenEditText);
-
+        rank=(TextView) rootView.findViewById(R.id.rank);
 
         profile_name.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +145,8 @@ public class Profile extends Fragment {
 
     public void settingProgres(){
 
+
+        Log.v("123", String.valueOf(rank)+"bla");
         if(resultFromStaticTest*20!=prg1.getProgress()){
             prg1.setProgress(0); // call these two methods before setting progress.
             prg1.setProgress(resultFromStaticTest*20);
