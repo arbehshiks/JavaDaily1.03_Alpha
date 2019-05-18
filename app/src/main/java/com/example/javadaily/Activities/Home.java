@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageButton;
 import android.view.View.OnTouchListener;
@@ -24,6 +25,9 @@ import android.widget.RelativeLayout;
 import android.widget.Button;
 
 import com.example.javadaily.R;
+import com.hanks.htextview.base.HTextView;
+
+import java.util.ArrayList;
 
 public class Home extends Fragment {
     //static ImageView imageView;
@@ -33,151 +37,59 @@ public class Home extends Fragment {
     private int progressStatus = 0;
     private Handler handler = new Handler();
 
+    private HTextView textView, textViewTyper;
+    int delay = 5000;
+    Handler hhandler;
+    ArrayList<String> arrMessages = new ArrayList<>();
+    int position=0;
+
+    ImageView arrow1;
+    ImageView arrow2;
+
     @Nullable
 
     @Override
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         super.onCreateView(inflater, container, savedInstanceState);
-
-
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        ImageView imageView = (ImageView) rootView.findViewById(R.id.image_java_bg_gif);
-        imageView.setBackgroundResource(R.drawable.gif);
 
-        mAnimationDrawable = (AnimationDrawable) imageView.getBackground();
+        arrow1=(ImageView) rootView.findViewById(R.id.arrow1);
+        arrow2=(ImageView) rootView.findViewById(R.id.arrow2);
 
-        mAnimationDrawable.start();
+        // Animated text
+        arrMessages.add("Welcome to Java Daily");
 
 
+        textViewTyper= rootView.findViewById(R.id.textViewTyper);
+        textViewTyper.animateText(arrMessages.get(position));
 
-        //final RelativeLayout rl = (RelativeLayout) rootView.findViewById(R.id.rl);
-        final ImageButton btn = (ImageButton) rootView.findViewById(R.id.image_java);
-        //final TextView tv = (TextView) findViewById(R.id.tv);
-        final ProgressBar pb = (ProgressBar) rootView.findViewById(R.id.pb);
+        hhandler = new Handler();
+        hhandler.postDelayed(new Runnable(){
+            public void run(){
 
-        btn.setOnClickListener(new View.OnClickListener() {
+                hhandler.postDelayed(this, delay);
+                if(position>=arrMessages.size())
+                    position=0;
+                textViewTyper.animateText(arrMessages.get(position));
+                position++;
+            }
+        }, delay);
+
+        final TextView home_facts = (TextView) rootView.findViewById(R.id.homeFacts);
+        final int[] array = {R.string.text1, R.string.text2,R.string.text3,R.string.text4,R.string.text5};
+        home_facts.post(new Runnable() {
+            int i = 0;
             @Override
-            public void onClick(View view) {
-                // Set the progress status zero on each button click
-                //progressStatus = 0;
-
-                // Start the lengthy operation in a background thread
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        while(progressStatus < 100){
-                            // Update the progress status
-                            progressStatus +=1;
-
-                            // Try to sleep the thread for 20 milliseconds
-                            try{
-                                Thread.sleep(20);
-                            }catch(InterruptedException e){
-                                e.printStackTrace();
-                            }
-
-                            // Update the progress bar
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    pb.setProgress(progressStatus);
-                                    // Show the progress on TextView
-                                    //tv.setText(progressStatus+"");
-                                    // If task execution completed
-                                    if(progressStatus == 100){
-                                        // Set a message of completion
-                                        //tv.setText("Operation completed.");
-                                    }
-                                }
-                            });
-                        }
-                    }
-                }).start(); // Start the operation
+            public void run() {
+                home_facts.setText(array[i]);
+                i++;
+                if (i ==5)
+                    i = 0;
+                home_facts.postDelayed(this, 5000);
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-
-
-        androidImageButton = (ImageButton) rootView.findViewById(R.id.image_button);
-
-        androidImageButton.setOnTouchListener(new View.setOnTouchListener(){
-            public void OnClick(View v){
-
-            }
-        });*/
-
-        /*
-        ImageButton imageButton = (ImageButton) rootView.findViewById(R.id.image_button);
-        imageButton.setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_UP){
-
-                    // Do what you want
-                    return true;
-                }
-                return false;
-            }
-        });*/
-
-        /*
-
-        imageView = (ImageView) rootView.findViewById(R.id.image_view);
-        imageView.setImageResource(R.drawable.button_off);
-
-        Button button = (Button) rootView.findViewById(R.id.button_view);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                imageView.setImageResource(R.drawable.button_on);
-            }
-        });
-        */
-
-        /*
-        final Button customButton = rootView.findViewById(R.id.button_view);
-        Switch switchEnableButton = rootView.findViewById(R.id.switch_enable_button);
-
-
-        switchEnableButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    customButton.setEnabled(true);
-                } else {
-                    customButton.setEnabled(false);
-                }
-            }
-        });
-
-        */
         return rootView;
 
     }

@@ -53,6 +53,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="90dp"
         android:text="Button"
+        android:translationX="30dp"
         android:visibility="invisible" />
 
     <TextView
@@ -66,6 +67,7 @@
         android:text="@string/name"
         android:textColor="@color/colorPrimaryBrightText"
         android:textSize="20sp"
+        android:translationX="60dp"
         android:visibility="visible" />
 
     <EditText
@@ -80,6 +82,7 @@
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimaryBrightText"
         android:textSize="20sp"
+        android:translationX="20dp"
         android:visibility="invisible" />
 
     <TextView
@@ -365,6 +368,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
         android:src="@drawable/checkmark"
+        android:translationX="@dimen/dimen_10"
         android:visibility="invisible" /><![CDATA[
 
 

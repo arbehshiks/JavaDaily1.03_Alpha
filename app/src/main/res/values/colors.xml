@@ -3,11 +3,13 @@
     <color name="colorPrimary">#2F2F2F</color>
     <color name="colorPrimaryDark">#202020</color>
     <color name="colorPrimaryText">#666DD2</color>
+    <color name="colorPrimaryButton">#6078BF</color>
     <color name="colorPrimaryBrightText">#E6E6E6</color>
+    <color name="home_typer">#C4C4C4</color>
     <color name="dark">#2F2F2F</color>
 
-    <color name="msg_no_notes">#999</color>
+    <color name="msg_no_notes">#999999</color>
     <color name="hint_enter_note">#89c3c3c3</color>
-    <color name="timestamp">#858585</color>
+    <color name="timestamp">#B1B1B1</color>
     <color name="note_list_text">#E6E6E6</color>
 </resources>

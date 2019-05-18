@@ -2,11 +2,9 @@ package com.example.javadaily.Activities;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import android.database.SQLException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,13 +13,11 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class DBHelper extends SQLiteOpenHelper{
-
-    public static final String TABLE_TESTS = "TestsTable";
-    public static final String DB_NAME = "tests.db";
-    private static String DB_PATH = "";
-    private static final int DB_VERSION = 1;
-
+public class DBHelperExams extends SQLiteOpenHelper{
+    public static final String TABLE_EXAMS = "ExamsTable";
+    public static final String DB_NAME = "exams.db";
+    private static String      DB_PATH = "";
+    private static final int   DB_VERSION = 1;
     public static final String KEY_ID = "_id";
     public static final String KEY_TOPIC = "topic";
     public static final String KEY_QID = "questionID";
@@ -33,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper{
     private final Context mContext;
     private boolean mNeedUpdate = false;
 
-    public DBHelper(Context context) {
+    public DBHelperExams(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         if (android.os.Build.VERSION.SDK_INT >= 17)
             DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
@@ -110,13 +106,13 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     void LogDB(SQLiteDatabase db){
-        Cursor cursor = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
+        Cursor cursor = db.query(DBHelperExams.TABLE_EXAMS, null, null, null, null, null, null);
         if (cursor.moveToFirst()){
-            int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
-            int topic = cursor.getColumnIndex(DBHelper.KEY_TOPIC);
-            int questionID = cursor.getColumnIndex(DBHelper.KEY_QID);
-            int photoID = cursor.getColumnIndex(DBHelper.KEY_PHOTO);
-            int source = cursor.getColumnIndex(DBHelper.KEY_SOURCE);
+            int idIndex = cursor.getColumnIndex(DBHelperExams.KEY_ID);
+            int topic = cursor.getColumnIndex(DBHelperExams.KEY_TOPIC);
+            int questionID = cursor.getColumnIndex(DBHelperExams.KEY_QID);
+            int photoID = cursor.getColumnIndex(DBHelperExams.KEY_PHOTO);
+            int source = cursor.getColumnIndex(DBHelperExams.KEY_SOURCE);
             do{
                 Log.d("mLog", "ID = " + cursor.getInt(idIndex) +
                         ", topic = " + cursor.getString(topic)+
@@ -127,14 +123,16 @@ public class DBHelper extends SQLiteOpenHelper{
             Log.d("mLog","0 rows");
         cursor.close();
     }
+
+
     public String[] getPhotoIDbyTopic(SQLiteDatabase db, String topic){
         ArrayList<String> arr = new ArrayList<>();
         db = getWritableDatabase();
-        Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
+        Cursor c = db.query(DBHelperExams.TABLE_EXAMS, null, null, null, null, null, null);
         if (c.moveToFirst()) {
             do {
-                if(c.getString(c.getColumnIndex(DBHelper.KEY_TOPIC)).equals(topic)){
-                    int nameIndex = c.getColumnIndex(DBHelper.KEY_PHOTO);
+                if(c.getString(c.getColumnIndex(DBHelperExams.KEY_TOPIC)).equals(topic)){
+                    int nameIndex = c.getColumnIndex(DBHelperExams.KEY_PHOTO);
                     arr.add(c.getString(nameIndex));
                 }
             } while (c.moveToNext());
@@ -149,11 +147,11 @@ public class DBHelper extends SQLiteOpenHelper{
     public String[] getAnswersbyTopic(SQLiteDatabase db, String topic){
         ArrayList<String> arr = new ArrayList<>();
         db = getWritableDatabase();
-        Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
+        Cursor c = db.query(DBHelperExams.TABLE_EXAMS, null, null, null, null, null, null);
         if (c.moveToFirst()) {
             do {
-                if(c.getString(c.getColumnIndex(DBHelper.KEY_TOPIC)).equals(topic)){
-                    int nameIndex = c.getColumnIndex(DBHelper.KEY_ANSWER);
+                if(c.getString(c.getColumnIndex(DBHelperExams.KEY_TOPIC)).equals(topic)){
+                    int nameIndex = c.getColumnIndex(DBHelperExams.KEY_ANSWER);
                     arr.add(c.getString(nameIndex));
                 }
             } while (c.moveToNext());
@@ -168,11 +166,11 @@ public class DBHelper extends SQLiteOpenHelper{
     public String[] getSourcebyTopic(SQLiteDatabase db, String topic){
         ArrayList<String> arr = new ArrayList<>();
         db = getWritableDatabase();
-        Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
+        Cursor c = db.query(DBHelperExams.TABLE_EXAMS, null, null, null, null, null, null);
         if (c.moveToFirst()) {
             do {
-                if(c.getString(c.getColumnIndex(DBHelper.KEY_TOPIC)).equals(topic)){
-                    int nameIndex = c.getColumnIndex(DBHelper.KEY_SOURCE);
+                if(c.getString(c.getColumnIndex(DBHelperExams.KEY_TOPIC)).equals(topic)){
+                    int nameIndex = c.getColumnIndex(DBHelperExams.KEY_SOURCE);
                     arr.add(c.getString(nameIndex));
                 }
             } while (c.moveToNext());
@@ -187,11 +185,11 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public String[] getTopics(SQLiteDatabase db){
         ArrayList<String> arr = new ArrayList<String>();
-        db = getWritableDatabase();
-        Cursor c = db.query(DBHelper.TABLE_TESTS, null, null, null, null, null, null);
+        db = getReadableDatabase();
+        Cursor c = db.query(DBHelperExams.TABLE_EXAMS, null, null, null, null, null, null);
         if (c.moveToFirst()) {
             do {
-                int topicIndex = c.getColumnIndex(DBHelper.KEY_TOPIC);
+                int topicIndex = c.getColumnIndex(DBHelperExams.KEY_TOPIC);
                 arr.add(c.getString(topicIndex));
             } while (c.moveToNext());
 
@@ -204,7 +202,7 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     int getSize() {
-        String countQuery = "SELECT  * FROM " + TABLE_TESTS;
+        String countQuery = "SELECT  * FROM " + TABLE_EXAMS;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         int count = cursor.getCount();

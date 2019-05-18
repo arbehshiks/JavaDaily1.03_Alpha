@@ -8,127 +8,79 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <!--
-    <ImageView
-        android:id="@+id/Background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_launcher_background" />
 
-    -->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.hanks.htextview.typer.TyperTextView
+            android:id="@+id/textViewTyper"
+            android:layout_width="190dp"
+            android:layout_height="184dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="112dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/timestamp"
+            android:textSize="35sp"
+            android:translationX="100dp"
+            android:translationY="-80dp"
+            app:charIncrease="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:typerSpeed="70" />
+
+        <ImageView
+            android:id="@+id/arrow2"
+            android:layout_width="92dp"
+            android:layout_height="191dp"
+            android:layout_marginTop="292dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.018"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/arrow2" />
+
+        <ImageView
+            android:id="@+id/arrow1"
+            android:layout_width="92dp"
+            android:layout_height="189dp"
+            android:layout_marginTop="296dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.949"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/arrow1" />
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="193dp"
+            android:layout_height="113dp"
+            android:layout_marginTop="360dp"
+            android:text="Swipe left or right to begin"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 
     <TextView
+        android:id="@+id/homeFacts"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="30dp"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@color/colorPrimaryText" />
-
-    <!--<ImageView
-        android:id="@+id/image_view"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/button_off"
-        />
-
-
-
-
-    <ImageButton
-        android:id="@+id/image_button"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/button_on" />
-        -->
-
-    <ImageButton
-        android:id="@+id/image_java"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="145dp"
-        android:layout_marginEnd="25dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/java2" />
-
-    <ImageView
-        android:id="@+id/image_java_bg_dark"
-        android:layout_width="121dp"
-        android:layout_height="129dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="145dp"
-        android:layout_marginEnd="25dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="570dp"
         android:background="@color/colorPrimaryDark"
-        android:translationX="0dp" />
-
-    <ImageView
-        android:id="@+id/image_java_bg_gif"
-        android:layout_width="121dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/gif"
-        android:translationX="0dp" />
-
-    <ImageView
-        android:id="@+id/image_java_bg_purple"
-        android:layout_width="50dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="193dp"
-        android:layout_marginEnd="25dp"
-        android:background="@color/colorPrimaryText"
-        android:rotation="90"
-        android:translationX="0dp" />
-
-    <ImageButton
-        android:id="@+id/image_button"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/mybutton"
-
-
-        />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="250dp"
-        android:fontFamily="@font/open_sans_semibold"
-        android:text="@string/percent"
-        android:textColor="@color/colorPrimaryText"
+        android:paddingTop="@dimen/dimen_10"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryBrightText"
         android:textSize="18sp" />
 
-    <ProgressBar
-        android:id="@+id/pb"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="340dp"
-        android:layout_height="340dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="10dp"
-        android:progress="46"
-        android:progressDrawable="@drawable/progressbar_states" />
 
 </FrameLayout>

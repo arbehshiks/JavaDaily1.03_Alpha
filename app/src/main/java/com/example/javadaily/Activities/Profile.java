@@ -81,10 +81,6 @@ public class Profile extends Fragment {
 
 
 
-
-
-
-
         // Editing name
         hiddenNameBTN = (Button) rootView.findViewById(R.id.hiddenNameButton);
         hiddenCheckBTN = (ImageButton) rootView.findViewById(R.id.hiddenCheckButton);

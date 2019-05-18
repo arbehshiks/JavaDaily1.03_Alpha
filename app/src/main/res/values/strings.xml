@@ -17,4 +17,11 @@
     <string name="namen">Name</string>
     <string name="hint">Enter name</string>
 
+
+    <string name="text1">The initial name of java was “Oak”</string>
+    <string name="text2">Java is used by 95% of the enterprises as their primary language</string>
+    <string name="text3">A Java developer’s median salary is $83, 975.00</string>
+    <string name="text4">In one year Java gets downloaded one billion times</string>
+    <string name="text5">Java is the second most popular language</string>
+
 </resources>
